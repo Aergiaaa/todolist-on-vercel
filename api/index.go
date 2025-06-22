@@ -45,9 +45,24 @@ func loadTemplates() *template.Template {
 	// Get template files
 	templateFiles, err := filepath.Glob("../templates/*.html")
 	if err != nil {
-		log.Println("Warning: Failed to get template files:", err)
+		log.Println("Warning: Failed to get template files (../):", err)
 	}
+	// debug
+	log.Println("Template files found:", templateFiles)
 
+	// Get template files
+	templateFiles, err = filepath.Glob("./templates/*.html")
+	if err != nil {
+		log.Println("Warning: Failed to get template files (./):", err)
+	}
+	// debug
+	log.Println("Template files found:", templateFiles)
+
+	// Get template files
+	templateFiles, err = filepath.Glob("/templates/*.html")
+	if err != nil {
+		log.Println("Warning: Failed to get template files (/):", err)
+	}
 	// debug
 	log.Println("Template files found:", templateFiles)
 
