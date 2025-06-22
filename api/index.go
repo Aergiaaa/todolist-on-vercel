@@ -49,9 +49,7 @@ func loadTemplates() *template.Template {
 	}
 
 	// debug
-	for _, file := range templateFiles {
-		log.Println("Template file found:", file)
-	}
+	log.Println("Template files found:", templateFiles)
 
 	// Parse templates
 	tmpl, err = tmpl.ParseFiles(templateFiles...)
