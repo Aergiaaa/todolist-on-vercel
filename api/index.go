@@ -43,7 +43,7 @@ func loadTemplates() *template.Template {
 	tmpl := template.New("")
 
 	// Get template files
-	templateFiles, err := filepath.Glob("templates/*.html")
+	templateFiles, err := filepath.Glob("./templates/*.html")
 	if err != nil {
 		log.Println("Warning: Failed to get template files:", err)
 	}
