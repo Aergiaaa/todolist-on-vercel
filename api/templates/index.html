@@ -1,0 +1,44 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+    <script src="/static/js/script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Todo List App</h1>
+      </header>
+
+      <main>
+        <section id="actions-container" class="actions">
+          <button
+            class="add-btn"
+            hx-get="/todos/form"
+            hx-target="#form-container"
+            hx-swap="innerHTML"
+            hx-swap-oob="outerHTML:#actions-container:none"
+          >
+            Add Todo
+          </button>
+        </section>
+
+        <section id="form-container" class="form-container"></section>
+
+        <section id="todos-container" class="todos-container">
+          {{template "todo-list" .}}
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2025 Todo List App</p>
+      </footer>
+    </div>
+  </body>
+</html>
+{{end}}
