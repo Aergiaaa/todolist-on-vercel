@@ -45,13 +45,18 @@ func loadTemplates() *template.Template {
 	// Get template files
 	templateFiles, err := filepath.Glob("templates/*.html")
 	if err != nil {
-		log.Println("Failed to get template files:", err)
+		log.Println("Warning: Failed to get template files:", err)
+	}
+
+	// debug
+	for _, file := range templateFiles {
+		log.Println("Template file found:", file)
 	}
 
 	// Parse templates
 	tmpl, err = tmpl.ParseFiles(templateFiles...)
 	if err != nil {
-		log.Println("Failed to parse templates:", err)
+		log.Println("Warning: Failed to parse templates:", err)
 		return tmpl
 	}
 
